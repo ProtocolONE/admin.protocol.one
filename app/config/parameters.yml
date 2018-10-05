@@ -1,0 +1,18 @@
+parameters:
+  default_locale: en
+  default_secret: "GznmUbujd!nj&@VyjujBkv8#@Lj"
+
+  secret: "t1dBMSLDbhdj3oEG3iSkL3dquY7C1GlD"
+  mongodb_dsn: "mongodb://p1-admin-mongo:27017"
+  mongodb_database: "hello_p1"
+  mongodb_user: ""
+  mongodb_password: ""
+
+  mongodb_server: "mongodb://p1-admin-mongo:27017"
+
+  s3_bucket_name: "protocolone-test"
+  s3_region: "eu-central-1"
+  s3_access_key: "AKIAJ3TW7PNS67SG4SUA"
+  s3_secret_key: "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"
+  s3_version: "latest"
+  s3_sdk_version: 3

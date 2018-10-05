@@ -1,0 +1,157 @@
+sonata_admin:
+    dashboard:
+        groups:
+            game:
+                label: Content
+                label_catalogue: Game
+                items:
+                    - admin.game
+                    - admin.gameUI
+                    - admin.gameHost
+                    - admin.grid
+            sonata_media:
+                label: "Media Library"
+                label_catalogue: SonataMediaBundle
+                items:
+                    - sonata.media.admin.media
+
+sonata_block:
+    blocks:
+        sonata.admin.block.admin_list:
+            contexts: [admin]
+
+sonata_doctrine_mongo_db_admin:
+    templates:
+        form:
+            - "@SonataDoctrineMongoDBAdmin/Form/form_admin_fields.html.twig"
+        filter:
+            - "@SonataDoctrineMongoDBAdmin/Form/filter_admin_fields.html.twig"
+        types:
+            list:
+                array:      "@SonataAdmin/CRUD/list_array.html.twig"
+                boolean:    "@SonataAdmin/CRUD/list_boolean.html.twig"
+                date:       "@SonataAdmin/CRUD/list_date.html.twig"
+                time:       "@SonataAdmin/CRUD/list_time.html.twig"
+                datetime:   "@SonataAdmin/CRUD/list_datetime.html.twig"
+                text:       "@SonataAdmin/CRUD/base_list_field.html.twig"
+                trans:      "@SonataAdmin/CRUD/list_trans.html.twig"
+                string:     "@SonataAdmin/CRUD/base_list_field.html.twig"
+                smallint:   "@SonataAdmin/CRUD/base_list_field.html.twig"
+                bigint:     "@SonataAdmin/CRUD/base_list_field.html.twig"
+                integer:    "@SonataAdmin/CRUD/base_list_field.html.twig"
+                decimal:    "@SonataAdmin/CRUD/base_list_field.html.twig"
+                identifier: "@SonataAdmin/CRUD/base_list_field.html.twig"
+
+            show:
+                array:      "@SonataAdmin/CRUD/show_array.html.twig"
+                boolean:    "@SonataAdmin/CRUD/show_boolean.html.twig"
+                date:       "@SonataAdmin/CRUD/show_date.html.twig"
+                time:       "@SonataAdmin/CRUD/show_time.html.twig"
+                datetime:   "@SonataAdmin/CRUD/show_datetime.html.twig"
+                text:       "@SonataAdmin/CRUD/base_show_field.html.twig"
+                trans:      "@SonataAdmin/CRUD/show_trans.html.twig"
+                string:     "@SonataAdmin/CRUD/base_show_field.html.twig"
+                smallint:   "@SonataAdmin/CRUD/base_show_field.html.twig"
+                bigint:     "@SonataAdmin/CRUD/base_show_field.html.twig"
+                integer:    "@SonataAdmin/CRUD/base_show_field.html.twig"
+                decimal:    "@SonataAdmin/CRUD/base_show_field.html.twig"
+
+sonata_media:
+    db_driver: doctrine_mongodb
+    default_context: default
+    contexts:
+        default:
+            providers:
+                - sonata.media.provider.dailymotion
+                - sonata.media.provider.youtube
+                - sonata.media.provider.image
+                - sonata.media.provider.file
+                - sonata.media.provider.vimeo
+            formats:
+                small: { width: 100 , quality: 100}
+                big: { width: 500 , quality: 100}
+        game.icon48x48:
+            providers:
+                - sonata.media.provider.image
+            formats:
+                small: { width: 48, quality: 100}
+                big: { width: 48, height: 48, quality: 100}
+        game.avatar100x100:
+            providers:
+                - sonata.media.provider.image
+            formats:
+                small: { width: 100, quality: 100}
+                big: { width: 100, height: 100, quality: 100}
+        game.avatar300x200:
+            providers:
+                - sonata.media.provider.image
+            formats:
+                small: { width: 150, quality: 100}
+                big: { width: 300, height: 200, quality: 100}
+        game.avatar180x200:
+            providers:
+                - sonata.media.provider.image
+            formats:
+                small: { width: 90, quality: 100}
+                big: { width: 180, height: 200, quality: 100}
+        game.iconInApp:
+            providers:
+                - sonata.media.provider.file
+        gameUI.imageSmall:
+            providers:
+                - sonata.media.provider.image
+            formats:
+                small: { width: 87, quality: 100}
+                big: { width: 87, height: 87, quality: 100}
+        gameUI.imageHorizontalSmall:
+            providers:
+                - sonata.media.provider.image
+            formats:
+                small: { width: 188, quality: 100}
+                big: { width: 188, height: 93, quality: 100}
+        gameUI.imageLogoSmall:
+            providers:
+                - sonata.media.provider.image
+            formats:
+                small: { width: 105, quality: 100}
+                big: { width: 209, height: 60, quality: 100}
+        gameUI.imagePopupArt:
+            providers:
+                - sonata.media.provider.image
+            formats:
+                small: { width: 119, quality: 100}
+                big: { width: 238, height: 308, quality: 100}
+        gameUI.backgroundInApp:
+            providers:
+                - sonata.media.provider.image
+            formats:
+                small: { width: 200, quality: 100}
+                big: { width: 1000, height: 600, quality: 100}
+        gridItem.image:
+            providers:
+                - sonata.media.provider.image
+            formats:
+                small: { width: 100, quality: 100}
+                big: { width: 1000, height: 1000, quality: 100}
+    cdn:
+        server:
+            path: 'https://s3.%s3_region%.amazonaws.com/%s3_bucket_name%'
+    providers:
+        image:
+            filesystem: sonata.media.filesystem.s3
+        file:
+            filesystem: sonata.media.filesystem.s3
+            allowed_extensions: ['ico']
+            allowed_mime_types: ['image/x-icon']
+
+    filesystem:
+        s3:
+            bucket: '%s3_bucket_name%'
+            accessKey: '%s3_access_key%'
+            secretKey: '%s3_secret_key%'
+            region: '%s3_region%'
+            version: '%s3_version%'
+            sdk_version: '%s3_sdk_version%'
+    class:
+        media: Application\Sonata\MediaBundle\Document\Media
+        gallery: Application\Sonata\MediaBundle\Document\Gallery

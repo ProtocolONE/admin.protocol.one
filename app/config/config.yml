@@ -1,0 +1,50 @@
+imports:
+    - { resource: parameters.yml }
+    - { resource: security.yml }
+    - { resource: services.yml }
+    - { resource: packages/sonata_admin.yml }
+
+parameters:
+    locale: en
+
+framework:
+    translator: { fallbacks: ['%locale%'] }
+    secret: '%secret%'
+    router:
+        resource: '%kernel.project_dir%/app/config/routing.yml'
+        strict_requirements: ~
+    form: ~
+    csrf_protection: ~
+    validation: { enable_annotations: true }
+    default_locale: '%locale%'
+    trusted_hosts: ~
+    session:
+        handler_id: session.handler.native_file
+        save_path: '%kernel.project_dir%/var/sessions/%kernel.environment%'
+    fragments: ~
+    http_method_override: true
+    assets: ~
+    php_errors:
+        log: true
+
+twig:
+    debug: '%kernel.debug%'
+    strict_variables: '%kernel.debug%'
+
+doctrine_mongodb:
+    connections:
+        default:
+            server: "%mongodb_server%"
+            options: {}
+    default_database: test_database
+    document_managers:
+        default:
+            auto_mapping: true
+            mappings:
+                ApplicationSonataMediaBundle: ~
+                SonataMediaBundle: ~
+                AppBundle: ~
+
+sensio_framework_extra:
+   router:
+        annotations: false

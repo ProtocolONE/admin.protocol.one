@@ -1,0 +1,91 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    AppBundle\:
+        resource: '../../src/AppBundle/*'
+        exclude: '../../src/AppBundle/{Entity,Repository,Tests}'
+
+    AppBundle\Controller\:
+        resource: '../../src/AppBundle/Controller'
+        public: true
+        tags: ['controller.service_arguments']
+
+    admin.game:
+        class: AppBundle\Admin\GameAdmin
+        arguments: [~, AppBundle\Document\Game, ~]
+        tags:
+            - { name: sonata.admin, manager_type: doctrine_mongodb, label: Game }
+        public: true
+
+    admin.game.genre:
+        class: AppBundle\Admin\GenreAdmin
+        arguments: [~, AppBundle\Document\Genre, ~]
+        tags:
+            - { name: sonata.admin, manager_type: doctrine_mongodb, label: Genre }
+        public: true
+
+    admin.game.shortcut:
+        class: AppBundle\Admin\ShortcutAdmin
+        arguments: [~, AppBundle\Document\Shortcut, ~]
+        tags:
+            - { name: sonata.admin, manager_type: doctrine_mongodb, label: Shortcut }
+        public: true
+
+    admin.gameUI:
+        class: AppBundle\Admin\GameUIAdmin
+        arguments: [~, AppBundle\Document\GameUI, ~]
+        tags:
+            - { name: sonata.admin, manager_type: doctrine_mongodb, label: GameUI }
+        public: true
+
+    admin.gameHost:
+        class: AppBundle\Admin\GameHostAdmin
+        arguments: [~, AppBundle\Document\GameHost, ~]
+        tags:
+            - { name: sonata.admin, manager_type: doctrine_mongodb, label: GameHost }
+        public: true
+
+    admin.gameDownloadHook:
+        class: AppBundle\Admin\DownloadHookAdmin
+        arguments: [~, AppBundle\Document\DownloadHook, ~]
+        tags:
+            - { name: sonata.admin, manager_type: doctrine_mongodb, label: DownloadHook }
+        public: true
+
+    admin.gameDownloadHookType:
+        class: AppBundle\Admin\DownloadHookTypeAdmin
+        arguments: [~, AppBundle\Document\DownloadHookType, ~]
+        tags:
+            - { name: sonata.admin, manager_type: doctrine_mongodb, label: DownloadHookType }
+        public: true
+
+    admin.gameExecutorHook:
+        class: AppBundle\Admin\ExecutorHookAdmin
+        arguments: [~, AppBundle\Document\ExecutorHook, ~]
+        tags:
+            - { name: sonata.admin, manager_type: doctrine_mongodb, label: ExecutorHook }
+        public: true
+
+    admin.gameExecutorHookType:
+        class: AppBundle\Admin\ExecutorHookTypeAdmin
+        arguments: [~, AppBundle\Document\ExecutorHookType, ~]
+        tags:
+            - { name: sonata.admin, manager_type: doctrine_mongodb, label: ExecutorHookType }
+        public: true
+
+    admin.gridItem:
+        class: AppBundle\Admin\GridItemAdmin
+        arguments: [~, AppBundle\Document\GridItem, ~]
+        tags:
+            - { name: sonata.admin, manager_type: doctrine_mongodb, label: GridItem }
+        public: true
+
+    admin.grid:
+        class: AppBundle\Admin\GridAdmin
+        arguments: [~, AppBundle\Document\Grid, ~]
+        tags:
+            - { name: sonata.admin, manager_type: doctrine_mongodb, label: Grid }
+        public: true

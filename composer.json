@@ -1,0 +1,83 @@
+{
+  "name": "protocolone/admin",
+  "description": "ProtocolOne Admin Service",
+  "license": "proprietary",
+  "type": "project",
+  "authors": [
+    {
+      "name": "Vadim Sabirov",
+      "email": "vadim.sabirov@protocol.one"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "AppBundle\\": "src/AppBundle",
+      "Application\\Sonata\\MediaBundle\\": "src/Application/Sonata/MediaBundle"
+    },
+    "classmap": [
+      "app/AppKernel.php",
+      "app/AppCache.php"
+    ]
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Tests\\": "tests/"
+    },
+    "files": [
+      "vendor/symfony/symfony/src/Symfony/Component/VarDumper/Resources/functions/dump.php"
+    ]
+  },
+  "require": {
+    "php": ">=5.5.9",
+    "ext-fileinfo": "^1.0",
+    "ext-mongo": "^1.0",
+    "alcaeus/mongo-php-adapter": "^1.1",
+    "aws/aws-sdk-php": "^3.67",
+    "doctrine/doctrine-bundle": "^1.6",
+    "doctrine/orm": "^2.5",
+    "mongodb/mongodb": "^1.4",
+    "sensio/distribution-bundle": "^5.0",
+    "sensio/framework-extra-bundle": "^5.0.0",
+    "sonata-project/admin-bundle": "^3.39",
+    "sonata-project/datagrid-bundle": "~2.2",
+    "sonata-project/doctrine-mongodb-admin-bundle": "^3.1",
+    "sonata-project/media-bundle": "^3.16",
+    "symfony/monolog-bundle": "^3.1.0",
+    "symfony/symfony": "3.4.*",
+    "twig/twig": "^1.0||^2.0"
+  },
+  "require-dev": {
+    "sensio/generator-bundle": "^3.0",
+    "symfony/phpunit-bridge": "^3.0",
+    "roave/security-advisories": "dev-master"
+  },
+  "scripts": {
+    "symfony-scripts": [
+      "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::clearCache",
+      "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installAssets",
+      "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installRequirementsFile",
+      "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::prepareDeploymentTarget"
+    ],
+    "post-install-cmd": [
+      "@symfony-scripts"
+    ],
+    "post-update-cmd": [
+      "@symfony-scripts"
+    ]
+  },
+  "config": {
+    "sort-packages": true,
+    "platform": {
+      "ext-mongo": "1.6.16"
+    }
+  },
+  "extra": {
+    "symfony-app-dir": "app",
+    "symfony-bin-dir": "bin",
+    "symfony-var-dir": "var",
+    "symfony-web-dir": "public",
+    "symfony-tests-dir": "tests",
+    "symfony-assets-install": "relative",
+    "branch-alias": null
+  }
+}
