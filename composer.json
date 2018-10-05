@@ -28,7 +28,7 @@
     ]
   },
   "require": {
-    "php": ">=5.5.9",
+    "php": "~7.2",
     "ext-fileinfo": "^1.0",
     "ext-mongo": "^1.0",
     "alcaeus/mongo-php-adapter": "^1.1",
