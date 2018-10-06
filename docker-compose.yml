@@ -22,10 +22,13 @@ services:
             - "p1-admin-php"
 
     p1-admin-mongo:
+        
         image: mongo:4.1.3
         container_name: p1-admin-mongo
         networks: 
-          - p1devnet
+          p1devnet:
+            aliases: 
+              - p1-api-mongo
         restart: always
         volumes:
             - p1-admin-mongo:/data/db
