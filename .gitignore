@@ -1,5 +1,4 @@
 /.web-server-pid
-/public/bundles/*
 /build/
 /phpunit.xml
 /var/*
