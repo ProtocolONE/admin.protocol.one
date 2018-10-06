@@ -13,11 +13,7 @@
     "psr-4": {
       "AppBundle\\": "src/AppBundle",
       "Application\\Sonata\\MediaBundle\\": "src/Application/Sonata/MediaBundle"
-    },
-    "classmap": [
-      "app/AppKernel.php",
-      "app/AppCache.php"
-    ]
+    }
   },
   "autoload-dev": {
     "psr-4": {
