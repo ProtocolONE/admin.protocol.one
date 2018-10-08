@@ -11,15 +11,19 @@ jobs:
   include:
   - stage: Building php-fpm image with admin.protocol.one
     script:
-    - export TAG=`if [[ $TRAVIS_BRANCH == "master" ]]; then echo "latest"; else echo $TRAVIS_TAG; fi`
+    - export TAG=`if [[ $TRAVIS_BRANCH == "master" ]]; then echo "latest"; else echo
+      $TRAVIS_TAG; fi`
     - echo "$DOCKER_PASSWORD" | docker login --username "$DOCKER_USERNAME" --password-stdin
     - docker build -t $REPO:$TAG .
     - docker push $REPO
   - stage: Building nginx image with admin.protocol.one
     script:
-    - export TAG=`if [[ $TRAVIS_BRANCH == "master" ]]; then echo "latest"; else echo $TRAVIS_TAG; fi`
+    - export TAG=`if [[ $TRAVIS_BRANCH == "master" ]]; then echo "latest"; else echo
+      $TRAVIS_TAG; fi`
     - echo "$DOCKER_PASSWORD" | docker login --username "$DOCKER_USERNAME" --password-stdin
     - docker build -t $REPONGX:$TAG -f Dockerfile.nginx .
     - docker push $REPONGX
 notifications:
   email: false
+  slack:
+    secure: qMQlVqH+3gXBthNC4r0I3BZHUdwSGU+MCOqvTMAvN9S8o+5qr1/o7af9OHcCjn9Dj9ggJpLUjiY+hppPOkfPeUojtrqLdYAMK61C9glKPlgxAZyqSMtPdCHb3XxAF4seGRFspNjHkDC+gV32GClr4zRHGVc/amKIIWxoOX/O4CP+RfwJxrknNIIOPN9vtfuuY+sXE6YPexhkQ3IXtR/tYhsPQEVDiXxrX20GTdpBCgkKHuNIAI9KdCg0OtkjKl8rJzxOkEkRNEe0pPC0GBfvur79gH33zbGMFTp3FvbmvPYPXJYGZagoSonwOxO7qX+j5X/Nxf+dfxl1EuXc/WOb9jozKJ/ETOKddepeYeFmx6F7DZHDGXItMAy86Re0+Ipnyh7REHKjyublhbCaKXqDS9HNHWQY97XxtH7xJgIB1ZEm1DhnlK8ZrQ70Cqd4/gIQH/OsoNKI2qhXyMHMowr7nymjSOydMPl8l4DAdVyQYo9Td4TWFmL7ITU7pgoLHEkio7XbF+NnuRt2zvXeIszmsd/31qPjQV8g62O3Bivbq8e81DdBVCTBaMl0x7wH8w116IUhfAOY2qkNfT6AycjgLLgqwTMXjd0y7gW+6xPsZ7vq38IoS/hWXkzzJcuw1nSBN9k3knDhz1+VKJjRGtSQDlWnwgKUCR3q7AsJSegDrKk=
