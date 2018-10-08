@@ -3,17 +3,23 @@ env:
   - secure: SAXWUJ3I5aOCoPW6+v0tN1r4fh5twkhXBDZOf3KrMQm7n6b1pc5m8x2MSp18+knsn/yFIuFuHglu14/04OzBA2LI5FOwQ1eOdWfA7i9X/UUY+oK0OViigtcxd6qu2JhjrvQocxjdPptHohdWKDDFcWqTjQ78OvqX3bEMGz2xzOoLNud8KP8Q/+KYEHN4mYM6zKZXkJ1vi0KCNtFqdOF30NsPer8ISXSuZXZvh93lbAhyi9pcN6MW4GbtOBHuVw4LmJbWT7F/9Wq8DZENG19L9erohymW87fSDKhnuHCDE3Wu6k41AvEk2wUiJT2OWWVjdwYfDH8ILmCgmhqOhVQhvXwoO4r70usVQwg5wkm1ObBBO9K7XNxxjwgiG9+4sQQ6O9pSZ7pzgPrZ3ILMXioYSENhTRQ/qziNclzZXhUvK95LHdz/TE2p/fPTzxr2DE3yywGceWL62BzR2+CsC2qh0mfu6JzdUBd1bztiNsPMBMt0iW5Fk8CcZFIJsV3pDLH6ZnU0k0exvzBvjjj0d5L6v5jNVV30eL9dBzHxJcNdatURXuIvhDTj780h2iMl50cFCOHncTNfIFZ9/Bu/9/3eeMqhUZJDKBPQhky35wF+L34UR8FTnwDj7Xm/vED8vH40XMh0Uw52VKOQH8R28orB64ueKCcXvYusCLdpMtSmkfg=
   - secure: CCC2k5WDJFgeWTMBeh18x7I9Jj9IuU5S7pD3bF1Mw/ejheTw73m7EHJLwV7yqBENBJ4YtVkMNiZJHC6DUcSEpK3kTrBGFYKFb3c1uuNTSrigEdPiFKx2PrQOpKw9tVl47xVPHlJvmhPd0KorhjEw+xJu3zYbSpcEpl17Cmx1qdcFP4gfZtFoJlIi6fM3Ok/xW5xs3eCAbay8CX+lDSd3SMebIy130RnXK3PMcORv7HKAe6i90zLOLQRuCBLQOys9TAlreaPIQKxNQuZzGvGW7Nu6FsP2i3jPjupl8EFNMYvuBgerUIc2mzuDlb8hqL2dxHtgk8Wazl72d2y/FVkwSbuY1/CxLAjj8A3r7uGK0AYHv9LLw04BnfM5cVbiDy1PtQPNxh5hoD925nxXajC82YifxsWlyAE8JnBK99BhESR30J2bb7poXIP1T8eBKHuG7Q/08mnhwr6zR0GhJqy5XcJuya4kT6ANjzn6B7MHEgAHNqlaLRjGuwr+qbu0sbu53+Xdoaw9ewujOhNWu+U4QlR1lWuOU3GCu9LnH+rfDHOY5KvcFoYSX1sfjc30Z+6Rainh+5NtZlgBA8jnhLoPr8ZzDJSJniyqMt+a+ZSq91X2AsZxOMEFAxq1dwpzpatzek5Ckckl0gZSaTcCDxav/NsPNWuapFYmwBCtiWy+tNU=
   - REPO=p1hub/admin.protocol.one
+  - REPONGX=p1hub/admin.protocol.one-nginx
 sudo: true
 services:
 - docker
 jobs:
   include:
-  - stage: Building image with admin.protocol.one
+  - stage: Building php-fpm image with admin.protocol.one
     script:
-    - export TAG=`if [[ $TRAVIS_BRANCH == "master" ]]; then echo "latest"; else echo
-      $TRAVIS_TAG; fi`
+    - export TAG=`if [[ $TRAVIS_BRANCH == "master" ]]; then echo "latest"; else echo $TRAVIS_TAG; fi`
     - echo "$DOCKER_PASSWORD" | docker login --username "$DOCKER_USERNAME" --password-stdin
     - docker build -t $REPO:$TAG .
     - docker push $REPO
+  - stage: Building nginx image with admin.protocol.one
+    script:
+    - export TAG=`if [[ $TRAVIS_BRANCH == "master" ]]; then echo "latest"; else echo $TRAVIS_TAG; fi`
+    - echo "$DOCKER_PASSWORD" | docker login --username "$DOCKER_USERNAME" --password-stdin
+    - docker build -t $REPONGX:$TAG -f Dockerfile.nginx .
+    - docker push $REPONGX
 notifications:
   email: false
