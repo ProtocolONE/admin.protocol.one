@@ -42,11 +42,11 @@ class DownloadHook
     }
 
     /**
-     * @return mixed
+     * @return int
      */
-    public function getPriorityBefore()
+    public function getPriorityBefore(): int
     {
-        return $this->priorityBefore;
+        return (int)$this->priorityBefore;
     }
 
     /**
@@ -60,11 +60,11 @@ class DownloadHook
     }
 
     /**
-     * @return mixed
+     * @return int
      */
-    public function getPriorityAfter()
+    public function getPriorityAfter(): int
     {
-        return $this->priorityAfter;
+        return (int)$this->priorityAfter;
     }
 
     /**

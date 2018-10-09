@@ -194,9 +194,9 @@ class Game
     /**
      * Get name
      *
-     * @return string $name
+     * @return string|null $name
      */
-    public function getName(): string
+    public function getName(): ?string
     {
         return $this->name;
     }
@@ -227,9 +227,9 @@ class Game
     /**
      * Get alias
      *
-     * @return string $alias
+     * @return string|null $alias
      */
-    public function getAlias(): string
+    public function getAlias(): ?string
     {
         return $this->alias;
     }
@@ -249,9 +249,9 @@ class Game
     /**
      * Get developer
      *
-     * @return string $developer
+     * @return string|null $developer
      */
-    public function getDeveloper(): string
+    public function getDeveloper(): ?string
     {
         return $this->developer;
     }
@@ -271,9 +271,9 @@ class Game
     /**
      * Get publisher
      *
-     * @return string $publisher
+     * @return string|null $publisher
      */
-    public function getPublisher(): string
+    public function getPublisher(): ?string
     {
         return $this->publisher;
     }
@@ -293,9 +293,9 @@ class Game
     /**
      * Get releaseDate
      *
-     * @return \DateTime $releaseDate
+     * @return \DateTime|null $releaseDate
      */
-    public function getReleaseDate(): \DateTime
+    public function getReleaseDate(): ?\DateTime
     {
         return $this->releaseDate;
     }
@@ -315,9 +315,9 @@ class Game
     /**
      * Get obtStartDate
      *
-     * @return \DateTime $obtStartDate
+     * @return \DateTime|null $obtStartDate
      */
-    public function getObtStartDate(): \DateTime
+    public function getObtStartDate(): ?\DateTime
     {
         return $this->obtStartDate;
     }
@@ -337,9 +337,9 @@ class Game
     /**
      * Get officialSite
      *
-     * @return string $officialSite
+     * @return string|null $officialSite
      */
-    public function getOfficialSite(): string
+    public function getOfficialSite(): ?string
     {
         return $this->officialSite;
     }
@@ -359,9 +359,9 @@ class Game
     /**
      * Get forumUrl
      *
-     * @return string $forumUrl
+     * @return string|null $forumUrl
      */
-    public function getForumUrl(): string
+    public function getForumUrl(): ?string
     {
         return $this->forumUrl;
     }
@@ -381,9 +381,9 @@ class Game
     /**
      * Get wikiUrl
      *
-     * @return string $wikiUrl
+     * @return string|null $wikiUrl
      */
-    public function getWikiUrl(): string
+    public function getWikiUrl(): ?string
     {
         return $this->wikiUrl;
     }
@@ -403,9 +403,9 @@ class Game
     /**
      * Get supportUrl
      *
-     * @return string $supportUrl
+     * @return string|null $supportUrl
      */
-    public function getSupportUrl(): string
+    public function getSupportUrl(): ?string
     {
         return $this->supportUrl;
     }
@@ -425,9 +425,9 @@ class Game
     /**
      * Get description
      *
-     * @return string $description
+     * @return string|null $description
      */
-    public function getDescription(): string
+    public function getDescription(): ?string
     {
         return $this->description;
     }
@@ -447,17 +447,17 @@ class Game
     /**
      * Get textForCatalog
      *
-     * @return string $textForCatalog
+     * @return string|null $textForCatalog
      */
-    public function getTextForCatalog(): string
+    public function getTextForCatalog(): ?string
     {
         return $this->textForCatalog;
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getFacebookGroupUrl(): string
+    public function getFacebookGroupUrl(): ?string
     {
         return $this->facebookGroupUrl;
     }
@@ -473,9 +473,9 @@ class Game
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getTwitterGroupUrl(): string
+    public function getTwitterGroupUrl(): ?string
     {
         return $this->twitterGroupUrl;
     }
@@ -491,9 +491,9 @@ class Game
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getYouTubeGroupUrl(): string
+    public function getYouTubeGroupUrl(): ?string
     {
         return $this->youTubeGroupUrl;
     }
@@ -509,9 +509,9 @@ class Game
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getGooglePlusGroupUrl(): string
+    public function getGooglePlusGroupUrl(): ?string
     {
         return $this->googlePlusGroupUrl;
     }
@@ -527,9 +527,9 @@ class Game
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getVkGroupUrl(): string
+    public function getVkGroupUrl(): ?string
     {
         return $this->vkGroupUrl;
     }
@@ -545,9 +545,9 @@ class Game
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getOdnoklassnikiGroupUrl(): string
+    public function getOdnoklassnikiGroupUrl(): ?string
     {
         return $this->odnoklassnikiGroupUrl;
     }
@@ -563,9 +563,9 @@ class Game
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getMoimirGroupUrl(): string
+    public function getMoimirGroupUrl(): ?string
     {
         return $this->moimirGroupUrl;
     }
@@ -581,9 +581,9 @@ class Game
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getClientDownloadUrl(): string
+    public function getClientDownloadUrl(): ?string
     {
         return $this->clientDownloadUrl;
     }
@@ -599,7 +599,7 @@ class Game
     }
 
     /**
-     * @return Media
+     * @return Media|null
      */
     public function getIcon48x48(): ?Media
     {
@@ -617,7 +617,7 @@ class Game
     }
 
     /**
-     * @return Media
+     * @return Media|null
      */
     public function getAvatar100x100(): ?Media
     {
@@ -635,7 +635,7 @@ class Game
     }
 
     /**
-     * @return Media
+     * @return Media|null
      */
     public function getAvatar300x200(): ?Media
     {
@@ -653,7 +653,7 @@ class Game
     }
 
     /**
-     * @return Media
+     * @return Media|null
      */
     public function getAvatar180x200(): ?Media
     {
@@ -671,7 +671,7 @@ class Game
     }
 
     /**
-     * @return Media
+     * @return Media|null
      */
     public function getIconInApp(): ?Media
     {
@@ -724,6 +724,6 @@ class Game
 
     public function __toString()
     {
-        return $this->getName();
+        return (string)$this->getName();
     }
 }

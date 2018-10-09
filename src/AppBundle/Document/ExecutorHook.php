@@ -40,7 +40,7 @@ class ExecutorHook
      */
     public function getPriority(): int
     {
-        return $this->priority;
+        return (int)$this->priority;
     }
 
     /**

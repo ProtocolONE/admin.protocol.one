@@ -150,7 +150,7 @@ class GameUI
      */
     public function isSecondAllowed(): bool
     {
-        return $this->secondAllowed;
+        return (bool)$this->secondAllowed;
     }
 
     /**
@@ -168,7 +168,7 @@ class GameUI
      */
     public function isHasOverlay(): bool
     {
-        return $this->hasOverlay;
+        return (bool)$this->hasOverlay;
     }
 
     /**
@@ -186,7 +186,7 @@ class GameUI
      */
     public function getSortPriority(): int
     {
-        return $this->sortPriority;
+        return (int)$this->sortPriority;
     }
 
     /**
@@ -200,7 +200,7 @@ class GameUI
     }
 
     /**
-     * @return Media
+     * @return Media|null
      */
     public function getImageSmall(): ?Media
     {
@@ -218,7 +218,7 @@ class GameUI
     }
 
     /**
-     * @return Media
+     * @return Media|null
      */
     public function getImageHorizontalSmall(): ?Media
     {
@@ -236,7 +236,7 @@ class GameUI
     }
 
     /**
-     * @return Media
+     * @return Media|null
      */
     public function getImageLogoSmall(): ?Media
     {
@@ -254,7 +254,7 @@ class GameUI
     }
 
     /**
-     * @return Media
+     * @return Media|null
      */
     public function getImagePopupArt(): ?Media
     {
@@ -272,7 +272,7 @@ class GameUI
     }
 
     /**
-     * @return Media
+     * @return Media|null
      */
     public function getBackgroundInApp(): ?Media
     {
@@ -326,9 +326,9 @@ class GameUI
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getWidgetList(): string
+    public function getWidgetList(): ?string
     {
         return $this->widgetList;
     }
@@ -344,9 +344,9 @@ class GameUI
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getLogoText(): string
+    public function getLogoText(): ?string
     {
         return $this->logoText;
     }
@@ -362,9 +362,9 @@ class GameUI
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getMiniToolTip(): string
+    public function getMiniToolTip(): ?string
     {
         return $this->miniToolTip;
     }
@@ -380,9 +380,9 @@ class GameUI
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getAboutGame(): string
+    public function getAboutGame(): ?string
     {
         return $this->aboutGame;
     }
@@ -398,9 +398,9 @@ class GameUI
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getShortDescription(): string
+    public function getShortDescription(): ?string
     {
         return $this->shortDescription;
     }
@@ -422,7 +422,7 @@ class GameUI
      */
     public function getSecondAllowed(): bool
     {
-        return $this->secondAllowed;
+        return (bool)$this->secondAllowed;
     }
 
     /**
@@ -432,6 +432,6 @@ class GameUI
      */
     public function getHasOverlay(): bool
     {
-        return $this->hasOverlay;
+        return (bool)$this->hasOverlay;
     }
 }

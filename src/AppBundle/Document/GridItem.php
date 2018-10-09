@@ -87,7 +87,7 @@ class GridItem
     }
 
     /**
-     * @return Media
+     * @return Media|null
      */
     public function getImage(): ?Media
     {
@@ -109,7 +109,7 @@ class GridItem
      */
     public function getRow(): int
     {
-        return $this->row;
+        return (int)$this->row;
     }
 
     /**
@@ -127,7 +127,7 @@ class GridItem
      */
     public function getCol(): int
     {
-        return $this->col;
+        return (int)$this->col;
     }
 
     /**
@@ -145,7 +145,7 @@ class GridItem
      */
     public function getWidth(): int
     {
-        return $this->width;
+        return (int)$this->width;
     }
 
     /**
@@ -163,7 +163,7 @@ class GridItem
      */
     public function getHeight(): int
     {
-        return $this->height;
+        return (int)$this->height;
     }
 
     /**
