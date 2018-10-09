@@ -4,7 +4,7 @@ parameters:
 
   secret: "t1dBMSLDbhdj3oEG3iSkL3dquY7C1GlD"
   mongodb_dsn: "mongodb://p1-admin-mongo:27017"
-  mongodb_database: "hello_p1"
+  mongodb_database: "p1admin"
   mongodb_user: ""
   mongodb_password: ""
 
