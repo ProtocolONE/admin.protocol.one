@@ -202,7 +202,7 @@ class GameUI
     /**
      * @return Media
      */
-    public function getImageSmall(): Media
+    public function getImageSmall(): ?Media
     {
         return $this->imageSmall;
     }
@@ -220,7 +220,7 @@ class GameUI
     /**
      * @return Media
      */
-    public function getImageHorizontalSmall(): Media
+    public function getImageHorizontalSmall(): ?Media
     {
         return $this->imageHorizontalSmall;
     }
@@ -238,7 +238,7 @@ class GameUI
     /**
      * @return Media
      */
-    public function getImageLogoSmall(): Media
+    public function getImageLogoSmall(): ?Media
     {
         return $this->imageLogoSmall;
     }
@@ -256,7 +256,7 @@ class GameUI
     /**
      * @return Media
      */
-    public function getImagePopupArt(): Media
+    public function getImagePopupArt(): ?Media
     {
         return $this->imagePopupArt;
     }
@@ -274,7 +274,7 @@ class GameUI
     /**
      * @return Media
      */
-    public function getBackgroundInApp(): Media
+    public function getBackgroundInApp(): ?Media
     {
         return $this->backgroundInApp;
     }

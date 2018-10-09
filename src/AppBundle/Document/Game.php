@@ -601,7 +601,7 @@ class Game
     /**
      * @return Media
      */
-    public function getIcon48x48(): Media
+    public function getIcon48x48(): ?Media
     {
         return $this->icon48x48;
     }
@@ -619,7 +619,7 @@ class Game
     /**
      * @return Media
      */
-    public function getAvatar100x100(): Media
+    public function getAvatar100x100(): ?Media
     {
         return $this->avatar100x100;
     }
@@ -637,7 +637,7 @@ class Game
     /**
      * @return Media
      */
-    public function getAvatar300x200(): Media
+    public function getAvatar300x200(): ?Media
     {
         return $this->avatar300x200;
     }
@@ -655,7 +655,7 @@ class Game
     /**
      * @return Media
      */
-    public function getAvatar180x200(): Media
+    public function getAvatar180x200(): ?Media
     {
         return $this->avatar180x200;
     }
@@ -673,7 +673,7 @@ class Game
     /**
      * @return Media
      */
-    public function getIconInApp(): Media
+    public function getIconInApp(): ?Media
     {
         return $this->iconInApp;
     }

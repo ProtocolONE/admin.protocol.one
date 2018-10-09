@@ -89,7 +89,7 @@ class GridItem
     /**
      * @return Media
      */
-    public function getImage(): Media
+    public function getImage(): ?Media
     {
         return $this->image;
     }
