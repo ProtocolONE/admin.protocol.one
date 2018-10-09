@@ -10,9 +10,9 @@ parameters:
 
   mongodb_server: "mongodb://p1-admin-mongo:27017"
 
-  s3_bucket_name: ""
-  s3_region: ""
-  s3_access_key: ""
-  s3_secret_key: ""
-  s3_version: "latest"
+  s3_bucket_name: '%env(S3_BUCKET_NAME)%'
+  s3_region: '%env(S3_REGION)%'
+  s3_access_key: '%env(S3_ACCESS_KEY)%'
+  s3_secret_key: '%env(S3_SECRET_KEY)%'
+  s3_version: '%env(S3_VERSION)%'
   s3_sdk_version: 3
