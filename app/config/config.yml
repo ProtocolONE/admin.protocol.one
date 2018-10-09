@@ -31,6 +31,13 @@ twig:
     debug: '%kernel.debug%'
     strict_variables: '%kernel.debug%'
 
+monolog:
+  handlers:
+    main:
+      type: stream
+      path: "php://stderr"
+      level: debug
+
 doctrine_mongodb:
     connections:
         default:
