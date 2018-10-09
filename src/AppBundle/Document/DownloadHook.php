@@ -78,9 +78,9 @@ class DownloadHook
     }
 
     /**
-     * @return DownloadHookType
+     * @return DownloadHookType|null
      */
-    public function getDownloadHooksRef(): DownloadHookType
+    public function getDownloadHooksRef(): ?DownloadHookType
     {
         return $this->downloadHooksRef;
     }

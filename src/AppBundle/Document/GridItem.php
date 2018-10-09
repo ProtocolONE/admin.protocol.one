@@ -69,9 +69,9 @@ class GridItem
     }
 
     /**
-     * @return Game
+     * @return Game|null
      */
-    public function getGame(): Game
+    public function getGame(): ?Game
     {
         return $this->game;
     }

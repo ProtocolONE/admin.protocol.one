@@ -54,9 +54,9 @@ class ExecutorHook
     }
 
     /**
-     * @return mixed
+     * @return ExecutorHookType|null
      */
-    public function getExecutorHooksRef()
+    public function getExecutorHooksRef(): ?ExecutorHookType
     {
         return $this->executorHooksRef;
     }

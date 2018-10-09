@@ -205,9 +205,9 @@ class Game
     /**
      * Get shortcut
      *
-     * @return Shortcut $shortcut
+     * @return Shortcut|null $shortcut
      */
-    public function getShortcut(): Shortcut
+    public function getShortcut(): ?Shortcut
     {
         return $this->shortcut;
     }
@@ -715,9 +715,9 @@ class Game
     /**
      * Get genre
      *
-     * @return Genre $genre
+     * @return Genre|null $genre
      */
-    public function getGenre(): Genre
+    public function getGenre(): ?Genre
     {
         return $this->genre;
     }
