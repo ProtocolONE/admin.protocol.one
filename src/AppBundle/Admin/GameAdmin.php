@@ -127,7 +127,7 @@ class GameAdmin extends AbstractAdmin
                     'context' => 'game.iconInApp',
                     'data_class' => 'Application\Sonata\MediaBundle\Document\Media',
                     'label' => 'Icon in app',
-                    'provider' =>'sonata.media.provider.image',
+                    'provider' =>'sonata.media.provider.file',
                     'help' => $iconInApp,
                 ]
             )
