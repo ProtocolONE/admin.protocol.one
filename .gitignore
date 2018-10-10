@@ -11,3 +11,4 @@
 !var/sessions/.gitkeep
 !var/SymfonyRequirements.php
 /vendor/
+/etc/.env
