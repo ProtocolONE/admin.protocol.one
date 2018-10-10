@@ -14,14 +14,14 @@ jobs:
     - export TAG=`if [[ $TRAVIS_BRANCH == "master" ]]; then echo "latest"; else echo
       $TRAVIS_TAG; fi`
     - echo "$DOCKER_PASSWORD" | docker login --username "$DOCKER_USERNAME" --password-stdin
-    - docker build -t $REPO:$TAG .
+    - docker build -t $REPO:$TAG -t $REPO:0.0.$TRAVIS_BUILD_NUMBER .
     - docker push $REPO
   - stage: Building nginx image with admin.protocol.one
     script:
     - export TAG=`if [[ $TRAVIS_BRANCH == "master" ]]; then echo "latest"; else echo
       $TRAVIS_TAG; fi`
     - echo "$DOCKER_PASSWORD" | docker login --username "$DOCKER_USERNAME" --password-stdin
-    - docker build -t $REPONGX:$TAG -f Dockerfile.nginx .
+    - docker build -t $REPONGX:$TAG -t $REPO:0.0.$TRAVIS_BUILD_NUMBER -f Dockerfile.nginx .
     - docker push $REPONGX
 notifications:
   email: false
