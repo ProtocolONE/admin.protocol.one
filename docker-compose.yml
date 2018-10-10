@@ -3,6 +3,8 @@ services:
     p1-admin-php:
         build: .
         container_name: p1-admin-php
+        env_file:
+          - ./etc/.env
         networks: 
           - p1devnet
         restart: always
