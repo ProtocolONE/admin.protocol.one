@@ -2,17 +2,31 @@ parameters:
   default_locale: en
   default_secret: "GznmUbujd!nj&@VyjujBkv8#@Lj"
 
-  secret: "t1dBMSLDbhdj3oEG3iSkL3dquY7C1GlD"
-  mongodb_dsn: "mongodb://p1-admin-mongo:27017"
-  mongodb_database: "p1admin"
-  mongodb_user: ""
-  mongodb_password: ""
+  #default values for env variables:
+  env(MONGO_SERVER): "mongodb://p1-admin-mongo:27017"
+  env(MONGO_DATABASE): "p1admin"
+  env(MONGO_USER): ""
+  env(MONGO_PASSWORD): ""
+  
+  env(S3_BUCKET_NAME): test_bucket
+  env(S3_REGION): test_region
+  env(S3_ACCESS_KEY): test_access_key
+  env(S3_SECRET_KEY): test_secret_key
+  env(S3_VERSION): latest
+  env(S3_SDK_VERSION): 3
+  env(ADMIN_SECRET): "t1dBMSLDbhdj3oEG3iSkL3dquY7C1GlD"
 
-  mongodb_server: "mongodb://p1-admin-mongo:27017"
+  # parameters
+  secret: "%env(ADMIN_SECRET)%"
+  
+  mongodb_server: '%env(MONGO_SERVER)%'
+  mongodb_database: '%env(MONGO_DATABASE)%'
+  mongodb_user: '%env(MONGO_USER)%'
+  mongodb_password: '%env(MONGO_PASSWORD)%'
 
   s3_bucket_name: '%env(S3_BUCKET_NAME)%'
   s3_region: '%env(S3_REGION)%'
   s3_access_key: '%env(S3_ACCESS_KEY)%'
   s3_secret_key: '%env(S3_SECRET_KEY)%'
   s3_version: '%env(S3_VERSION)%'
-  s3_sdk_version: 3
+  s3_sdk_version: 3 #'%env(int:S3_SDK_VERSION)%' need int, seems like this type cast doesn't work?
