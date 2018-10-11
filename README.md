@@ -17,4 +17,4 @@ source code.
 Configs
 -------
 
-If you want to customize the project settings, copy ./etc/.env.example to ./etc/.env and set appropriate values
+If you want to customize the project settings, copy ./etc/.env.example to ./etc/.env and set appropriate values.
