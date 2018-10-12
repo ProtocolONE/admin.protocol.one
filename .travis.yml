@@ -28,7 +28,7 @@ jobs:
       .
     - docker push $REPONGX
 after_success:
-- curl -X POST $JURL/job/deploy-p1admin/build --user $JENKING_LOGIN:$TOKEN
+- curl -X POST $JURL/job/deploy-p1admin/build --user $JENKING_LOGIN:11dfbda63d581a48b6bdf01cda197f7cdd
 notifications:
   email: false
   slack:
