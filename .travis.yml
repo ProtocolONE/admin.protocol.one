@@ -4,6 +4,9 @@ env:
   - secure: CCC2k5WDJFgeWTMBeh18x7I9Jj9IuU5S7pD3bF1Mw/ejheTw73m7EHJLwV7yqBENBJ4YtVkMNiZJHC6DUcSEpK3kTrBGFYKFb3c1uuNTSrigEdPiFKx2PrQOpKw9tVl47xVPHlJvmhPd0KorhjEw+xJu3zYbSpcEpl17Cmx1qdcFP4gfZtFoJlIi6fM3Ok/xW5xs3eCAbay8CX+lDSd3SMebIy130RnXK3PMcORv7HKAe6i90zLOLQRuCBLQOys9TAlreaPIQKxNQuZzGvGW7Nu6FsP2i3jPjupl8EFNMYvuBgerUIc2mzuDlb8hqL2dxHtgk8Wazl72d2y/FVkwSbuY1/CxLAjj8A3r7uGK0AYHv9LLw04BnfM5cVbiDy1PtQPNxh5hoD925nxXajC82YifxsWlyAE8JnBK99BhESR30J2bb7poXIP1T8eBKHuG7Q/08mnhwr6zR0GhJqy5XcJuya4kT6ANjzn6B7MHEgAHNqlaLRjGuwr+qbu0sbu53+Xdoaw9ewujOhNWu+U4QlR1lWuOU3GCu9LnH+rfDHOY5KvcFoYSX1sfjc30Z+6Rainh+5NtZlgBA8jnhLoPr8ZzDJSJniyqMt+a+ZSq91X2AsZxOMEFAxq1dwpzpatzek5Ckckl0gZSaTcCDxav/NsPNWuapFYmwBCtiWy+tNU=
   - REPO=p1hub/admin.protocol.one
   - REPONGX=p1hub/admin.protocol.one-nginx
+  - secure: FxSqzgPbH6rKTylMMVZyFuT6Cg3v9MPsC9bqngRVqnYG06YslbmuxvTX8USPupKz3MZDuXXVfyYiIk/lo2+MMCvDWSunds69uht16FQfgfYFlkL8S3KBHpcoGDxrW9/Wq5hwtZmlA6FRuTELn+/e3itVYGxCOVjBFd9441PKM20IRvKp3Plw8FCSoV2Sa3YYYFup0BD4s0f5xHC5rHcJOpiuYT1jY9jTQmZaSxTm/ksa2jk5Qd8RFeyZ/yAe+FZv0jo10/mcTLOYPM/sNYpAekSCm434xp3KgQO3H6opENKDmp28y5ntsGRHc8M2OqjFPFKjSwJ6UgAQVhfr+NVOV/f1WvH9TDMvzhv72ymz6VkyZycCMMiaTdjj+aNWtpCg1aL/Hl5XO1p9UK6bT3BdJeDxAzYTiO1yRPsvXiJ1p5p16Ur6gWZ7gfUreaidehdqUb99R80oQb/tFtX9HC3cegCxvPj7uuDXTj7v9iP1aSxlRgVbWfMeyCmHGUKmuGd5SiHxiYy84O/PvHf2vXcuxATc6nFLEYBV0kdArVTDcY5VSyQB4JNqN1m0Y83xWkSwu/49WBSo58o/9m2f2UVcJTLY4e3AMsQZkkI3Rs3dd8eJc4DUJ7trf6Rz+/A4UiD+/G9XlZdi7r/BNunql4xA6UTpz/H71No+wb6hG8N+O5U=
+  - secure: Y/RIz0/gPIaIWeVfqJccqDR7DZ1W6B/dVqWlpOUgodsT4ePw+0gSFqrVDciNbSI2XmHy1CTf1YcmVxHwAvclHhovQFAFL64BalOsqXNmF2TsmQBFt4axLhiZgQtdaQYKVVnEFUnWyunvTqn835987rf+ozbIUX/NYcepMIL0BDgzy8aveKXdaqIcpDwV93I5g/yPwBiQoKZPGSeFg4eGPpPklQFnSQjTfLrUI5NmJR7DuE2OBXazvCBmtjG5QUMGhR22aNZ9+EqWZeHfb06f5FqUIlSqrLiB+uHsmOXbqKi4kNJyeiEOgN9irWlGpy32J9hnlH6L8IAss6yCS1LwM/prcGs4TCLX4z+oM7RT5yqI8nRrN/kGZgCT6/M2yVEybBA5HkbnlWveSXPI4SsPF2yJVC8kJygFuE4H8s2N/c8YcI75xA4IsdU+P8h3w+Posexl4pc+/biJwtXmMgWU1bDrMGVSHCXVj5D8SsvJwj02IGL5uHFCDXOO4H4/wNM351/UwmYQPfW+o3RcJmNxo0O9sFb/8WTvkY44nF7eRWdovbrkXVtIjCe9l+PJFQvc6PpJKptn4D5FmwK8Gh/EqqDfanU34Fek9yAKAVTVtSv40lPwKTA3GCt8it9p/DhpfyTME1S+9xcyUxuELaA0RUSPYtW7O2Sx6bppntNE5No=
+  - secure: HXyY0lu/uuqkxvc9ZFydjkKi+EnU+hNVLvTddFsbSwcOP44n82q8DLXjFO1LjQwzjemcZhJHlkLUuvtNTHvyGA1P1XGMJvFyEoCjDmrxYcxcNutYISNXbLmKI55/J4eq1xYaAT3Cd7gsupU2/+IfIOEmaK0nYtAw3rcZIGREHEUs9eetr/ansX2EKW15j4YZx75JkV00HWJpkNosqC1PxWwSkjLz1pgad+pbsWGFyHbiET5yB1JYaxayysTj+n/2D1gbHgn6kWc1JbVTtcMSUUTz9lGhc8wY6OL53D1TkuxBVvFlLFLmjlLBCCBVLF+/ohDoFS35dkKQOB5TMMSA1LXMSCvmiBEbffl0U0Vkqwtqr7YMlwMoSXSh/QQ752PCpGVh5XBiKrAxFx1Qq1C9wG891ToS0ICBNXUyIyzuMW2NBIBdZzH/Jc0l/VvsgHrbGFPIlAsA/ZmiA1Aw6Gi5RkSwj0VuSPy8CcIMqd2imBurvBN8Pi+Vgs5B4YNHYJKYLWDCRiBj+TCFsmTDF+NjrDc3AGTbn7/uXfuA50xmRTEK4xgtBUlCH1eHO7jbyywmYbX9fU1wqlTWkCrIt+tyKBzI6aywW5x+JLXv4DX9FAXfN5qGusJuktkR1Ng3qwAxRXz1A77VGjPpuvrNtFoddwHCAVWU35TAB1J0LotWygo=
 sudo: true
 services:
 - docker
@@ -21,8 +24,11 @@ jobs:
     - export TAG=`if [[ $TRAVIS_BRANCH == "master" ]]; then echo "latest"; else echo
       $TRAVIS_TAG; fi`
     - echo "$DOCKER_PASSWORD" | docker login --username "$DOCKER_USERNAME" --password-stdin
-    - docker build -t $REPONGX:$TAG -t $REPONGX:0.0.$TRAVIS_BUILD_NUMBER -f Dockerfile.nginx .
+    - docker build -t $REPONGX:$TAG -t $REPONGX:0.0.$TRAVIS_BUILD_NUMBER -f Dockerfile.nginx
+      .
     - docker push $REPONGX
+after_success:
+- curl -X POST $JURL/job/deploy-p1admin/build --user $JENKING_LOGIN:$TOKEN
 notifications:
   email: false
   slack:
