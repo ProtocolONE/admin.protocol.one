@@ -181,6 +181,12 @@ class Game
      */
     public $isRunnable;
 
+    public function __construct()
+    {
+        $this->isPublishedInApp = false;
+        $this->isRunnable = false;
+    }
+
     /**
      * Get id
      *
