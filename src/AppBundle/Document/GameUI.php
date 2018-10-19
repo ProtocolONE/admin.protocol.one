@@ -27,12 +27,6 @@ class GameUI
     protected $secondAllowed;
 
     /**
-     * @var boolean
-     * @MongoDB\Field(type="boolean")
-     */
-    protected $hasOverlay;
-
-    /**
      * @var integer
      * @MongoDB\Field(type="int")
      */
@@ -114,7 +108,6 @@ class GameUI
     {
         $this->sortPriority = 0;
         $this->secondAllowed = false;
-        $this->hasOverlay = false;
     }
 
     /**
@@ -160,24 +153,6 @@ class GameUI
     public function setSecondAllowed($secondAllowed): GameUI
     {
         $this->secondAllowed = $secondAllowed;
-        return $this;
-    }
-
-    /**
-     * @return bool
-     */
-    public function isHasOverlay(): bool
-    {
-        return (bool)$this->hasOverlay;
-    }
-
-    /**
-     * @param bool $hasOverlay
-     * @return GameUI
-     */
-    public function setHasOverlay($hasOverlay): GameUI
-    {
-        $this->hasOverlay = $hasOverlay;
         return $this;
     }
 
@@ -423,15 +398,5 @@ class GameUI
     public function getSecondAllowed(): bool
     {
         return (bool)$this->secondAllowed;
-    }
-
-    /**
-     * Get hasOverlay
-     *
-     * @return boolean $hasOverlay
-     */
-    public function getHasOverlay(): bool
-    {
-        return (bool)$this->hasOverlay;
     }
 }

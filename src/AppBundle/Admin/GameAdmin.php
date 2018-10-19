@@ -8,6 +8,7 @@ use Sonata\AdminBundle\Form\FormMapper;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
+use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 
 class GameAdmin extends AbstractAdmin
 {
@@ -52,6 +53,8 @@ class GameAdmin extends AbstractAdmin
             ->add('alias', TextType::class)
             ->add('genre', 'sonata_type_model')
             ->add('shortcut', 'sonata_type_model')
+            ->add('isPublishedInApp', CheckboxType::class, ['required' => false])
+            ->add('isRunnable', CheckboxType::class, ['required' => false])
             ->add('description', TextareaType::class)
             ->add('textForCatalog', TextareaType::class, ['required' => false])
             ->end()

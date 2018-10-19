@@ -170,6 +170,18 @@ class Game
     public $shortcut;
 
     /**
+     * @var boolean
+     * @MongoDB\Field(type="boolean")
+     */
+    public $isPublishedInApp;
+
+    /**
+     * @var boolean
+     * @MongoDB\Field(type="boolean")
+     */
+    public $isRunnable;
+
+    /**
      * Get id
      *
      * @return string $id
@@ -720,6 +732,42 @@ class Game
     public function getGenre(): ?Genre
     {
         return $this->genre;
+    }
+
+    /**
+     * @return bool
+     */
+    public function isPublishedInApp(): bool
+    {
+        return $this->isPublishedInApp;
+    }
+
+    /**
+     * @param bool $isPublishedInApp
+     * @return Game
+     */
+    public function setIsPublishedInApp(bool $isPublishedInApp): Game
+    {
+        $this->isPublishedInApp = $isPublishedInApp;
+        return $this;
+    }
+
+    /**
+     * @return bool
+     */
+    public function isRunnable(): bool
+    {
+        return $this->isRunnable;
+    }
+
+    /**
+     * @param bool $isRunnable
+     * @return Game
+     */
+    public function setIsRunnable(bool $isRunnable): Game
+    {
+        $this->isRunnable = $isRunnable;
+        return $this;
     }
 
     public function __toString()

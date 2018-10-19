@@ -1,6 +1,7 @@
 <?php namespace AppBundle\Document;
 
 use Doctrine\ODM\MongoDB\Mapping\Annotations as MongoDB;
+use Doctrine\ODM\MongoDB\PersistentCollection;
 
 /**
  * @MongoDB\Document
@@ -32,14 +33,13 @@ class Grid
     protected $createdAt;
 
     /**
-     * @var GridItem[]
+     * @var PersistentCollection
      * @MongoDB\ReferenceMany(targetDocument="GridItem", cascade={"all"})
      */
     protected $gridItems;
 
     public function __construct()
     {
-        $this->gridItems = [];
         $this->createdAt = new \DateTime();
     }
 
@@ -116,7 +116,7 @@ class Grid
     }
 
     /**
-     * @return GridItem[]
+     * @return PersistentCollection
      */
     public function getGridItems()
     {
