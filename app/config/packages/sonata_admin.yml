@@ -9,6 +9,7 @@ sonata_admin:
                     - admin.gameUI
                     - admin.gameHost
                     - admin.grid
+                    - admin.theme
             sonata_media:
                 label: "Media Library"
                 label_catalogue: SonataMediaBundle
@@ -133,6 +134,15 @@ sonata_media:
             formats:
                 small: { width: 100, quality: 100}
                 big: { width: 1000, height: 1000, quality: 100}
+        theme.image:
+            providers:
+                - sonata.media.provider.image
+            formats:
+                small: { width: 185, quality: 100}
+                big: { width: 370, height: 200, quality: 100}
+        theme.file:
+            providers:
+                - sonata.media.provider.file
     cdn:
         server:
             path: 'https://s3.%s3_region%.amazonaws.com/%s3_bucket_name%'

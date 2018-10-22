@@ -130,12 +130,16 @@ class GameAdmin extends AbstractAdmin
 
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)
     {
-        $datagridMapper->add('name');
+        $datagridMapper
+            ->add('id')
+            ->add('name')
+        ;
     }
 
     protected function configureListFields(ListMapper $listMapper)
     {
         $listMapper
+            ->addIdentifier('id')
             ->addIdentifier('name')
             ->addIdentifier('alias')
             ->addIdentifier('genre');
