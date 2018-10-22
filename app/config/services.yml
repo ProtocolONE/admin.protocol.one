@@ -34,6 +34,20 @@ services:
             - { name: sonata.admin, manager_type: doctrine_mongodb, label: Shortcut }
         public: true
 
+    admin.gameSocialGroup:
+        class: AppBundle\Admin\SocialGroupAdmin
+        arguments: [~, AppBundle\Document\SocialGroup, ~]
+        tags:
+            - { name: sonata.admin, manager_type: doctrine_mongodb, label: SocialGroup }
+        public: true
+
+    admin.gameSocialNetwork:
+        class: AppBundle\Admin\SocialNetworkAdmin
+        arguments: [~, AppBundle\Document\SocialNetwork, ~]
+        tags:
+            - { name: sonata.admin, manager_type: doctrine_mongodb, label: SocialNetwork }
+        public: true
+
     admin.gameUI:
         class: AppBundle\Admin\GameUIAdmin
         arguments: [~, AppBundle\Document\GameUI, ~]
