@@ -5,6 +5,7 @@ use Sonata\AdminBundle\Admin\AbstractAdmin;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Form\FormMapper;
+use Sonata\MediaBundle\Provider\MediaProviderInterface;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 
 class ThemeAdmin extends AbstractAdmin
@@ -21,14 +22,15 @@ class ThemeAdmin extends AbstractAdmin
         if ($subject) {
             $container = $this->getConfigurationPool()->getContainer();
             $media = $container->get('sonata.media.twig.extension');
-            $format = 'small';
+            $format = MediaProviderInterface::FORMAT_REFERENCE;
 
             if($subject->getImage()){
                 $image = sprintf('<img src="%s" class="admin-preview" />', $media->path($subject->getImage(), $format));
             }
 
             if($subject->getFile()){
-                $file = $subject->getFile()->getName();
+                $url = $media->path($subject->getFile(), $format);
+                $file = sprintf('<a href="%s">%s</a>', $url, $url);
             }
         }
 

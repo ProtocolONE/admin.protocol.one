@@ -5,6 +5,7 @@ use Sonata\AdminBundle\Admin\AbstractAdmin;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Form\FormMapper;
+use Sonata\MediaBundle\Provider\MediaProviderInterface;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
@@ -27,7 +28,7 @@ class GameAdmin extends AbstractAdmin
         if ($subject) {
             $container = $this->getConfigurationPool()->getContainer();
             $media = $container->get('sonata.media.twig.extension');
-            $format = 'small';
+            $format = MediaProviderInterface::FORMAT_REFERENCE;
 
             if($subject->getIcon48x48()){
                 $icon48x48 = sprintf('<img src="%s" class="admin-preview" />', $media->path($subject->getIcon48x48(), $format));
@@ -42,7 +43,8 @@ class GameAdmin extends AbstractAdmin
                 $avatar180x200 = sprintf('<img src="%s" class="admin-preview" />', $media->path($subject->getAvatar180x200(), $format));
             }
             if($subject->getIconInApp()){
-                $iconInApp = $subject->getIconInApp()->getName();
+                $url = $media->path($subject->getIconInApp(), $format);
+                $iconInApp = sprintf('<a href="%s">%s</a>', $url, $url);
             }
         }
 
