@@ -110,3 +110,10 @@ services:
         tags:
             - { name: sonata.admin, manager_type: doctrine_mongodb, label: Theme }
         public: true
+
+    admin.gameMaintenance:
+        class: AppBundle\Admin\MaintenanceAdmin
+        arguments: [~, AppBundle\Document\Maintenance, ~]
+        tags:
+            - { name: sonata.admin, manager_type: doctrine_mongodb, label: Maintenance }
+        public: true

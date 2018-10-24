@@ -8,6 +8,7 @@ sonata_admin:
                     - admin.game
                     - admin.gameUI
                     - admin.gameHost
+                    - admin.gameMaintenance
                     - admin.grid
                     - admin.theme
             sonata_media:
