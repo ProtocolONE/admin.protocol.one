@@ -40,7 +40,7 @@ class ThemeAdmin extends AbstractAdmin
             ->add('image', 'sonata_media_type',
                 [
                     'context' => 'theme.image',
-                    'data_class' => 'Application\Sonata\MediaBundle\Document\Media',
+                    'data_class' => Media::class,
                     'label' => 'Image',
                     'provider' =>'sonata.media.provider.image',
                     'help' => $image,
@@ -49,7 +49,7 @@ class ThemeAdmin extends AbstractAdmin
             ->add('file', 'sonata_media_type',
                 [
                     'context' => 'theme.file',
-                    'data_class' => 'Application\Sonata\MediaBundle\Document\Media',
+                    'data_class' => Media::class,
                     'label' => 'File',
                     'provider' =>'sonata.media.provider.file',
                     'help' => $file,

@@ -117,3 +117,10 @@ services:
         tags:
             - { name: sonata.admin, manager_type: doctrine_mongodb, label: Maintenance }
         public: true
+
+    admin.news:
+        class: AppBundle\Admin\NewsAdmin
+        arguments: [~, AppBundle\Document\News, ~]
+        tags:
+            - { name: sonata.admin, manager_type: doctrine_mongodb, label: News }
+        public: true
