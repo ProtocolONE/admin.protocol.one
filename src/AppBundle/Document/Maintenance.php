@@ -61,6 +61,12 @@ class Maintenance
      */
     protected $endDate;
 
+    public function __construct()
+    {
+        $this->startDate = new \DateTime();
+        $this->endDate = new \DateTime();
+    }
+
     /**
      * @return string
      */
