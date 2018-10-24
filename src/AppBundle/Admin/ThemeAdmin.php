@@ -6,6 +6,7 @@ use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Form\FormMapper;
 use Sonata\MediaBundle\Provider\MediaProviderInterface;
+use Application\Sonata\MediaBundle\Document\Media;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 
 class ThemeAdmin extends AbstractAdmin
@@ -65,5 +66,28 @@ class ThemeAdmin extends AbstractAdmin
     protected function configureListFields(ListMapper $listMapper)
     {
         $listMapper->addIdentifier('name');
+    }
+
+    public function preUpdate($theme)
+    {
+        /** @var Theme $theme */
+        $theme->setUpdateDate(new \DateTime());
+        $this->updateFileSize($theme);
+    }
+
+    public function prePersist($theme)
+    {
+        $this->updateFileSize($theme);
+    }
+
+    private function updateFileSize(Theme $theme): void
+    {
+        /** @var Media $file */
+        $file = $theme->getFile();
+        if (!$file instanceof Media) {
+            return;
+        }
+
+        $theme->setSize($file->getSize());
     }
 }
