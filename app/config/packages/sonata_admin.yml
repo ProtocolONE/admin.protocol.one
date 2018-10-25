@@ -149,7 +149,7 @@ sonata_media:
             providers:
                 - sonata.media.provider.image
             formats:
-                small: { width: 160, quality: 130}
+                small: { width: 160, quality: 100}
                 big: { width: 160, height: 130, quality: 100}
     cdn:
         server:
