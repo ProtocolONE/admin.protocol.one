@@ -124,3 +124,24 @@ services:
         tags:
             - { name: sonata.admin, manager_type: doctrine_mongodb, label: News }
         public: true
+
+    admin.gameGallery:
+        class: AppBundle\Admin\GalleryAdmin
+        arguments: [~, AppBundle\Document\Gallery, ~]
+        tags:
+            - { name: sonata.admin, manager_type: doctrine_mongodb, label: Gallery }
+        public: true
+
+    admin.gameBanner:
+        class: AppBundle\Admin\BannerAdmin
+        arguments: [~, AppBundle\Document\Banner, ~]
+        tags:
+            - { name: sonata.admin, manager_type: doctrine_mongodb, label: Banner }
+        public: true
+
+    admin.gameAnnouncement:
+        class: AppBundle\Admin\AnnouncementAdmin
+        arguments: [~, AppBundle\Document\Announcement, ~]
+        tags:
+            - { name: sonata.admin, manager_type: doctrine_mongodb, label: Announcement }
+        public: true

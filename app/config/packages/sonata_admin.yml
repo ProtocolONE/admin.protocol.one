@@ -9,6 +9,9 @@ sonata_admin:
                     - admin.gameUI
                     - admin.gameHost
                     - admin.gameMaintenance
+                    - admin.gameGallery
+                    - admin.gameBanner
+                    - admin.gameAnnouncement
                     - admin.grid
                     - admin.theme
                     - admin.news
@@ -151,6 +154,30 @@ sonata_media:
             formats:
                 small: { width: 160, quality: 100}
                 big: { width: 160, height: 130, quality: 100}
+        gallery.image:
+            providers:
+                - sonata.media.provider.image
+            formats:
+                small: { width: 190, quality: 100}
+                big: { width: 950, height: 576, quality: 100}
+        gallery.preview:
+            providers:
+                - sonata.media.provider.image
+            formats:
+                small: { width: 165, quality: 100}
+                big: { width: 165, height: 89, quality: 100}
+        banner.imageApp:
+            providers:
+                - sonata.media.provider.image
+            formats:
+                small: { width: 118, quality: 100}
+                big: { width: 590, height: 150, quality: 100}
+        announcement.image:
+            providers:
+                - sonata.media.provider.image
+            formats:
+                small: { width: 238, height: 308, quality: 100}
+                big: { width: 900, height: 500, quality: 100}
     cdn:
         server:
             path: 'https://s3.%s3_region%.amazonaws.com/%s3_bucket_name%'
