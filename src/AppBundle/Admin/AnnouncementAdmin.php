@@ -53,8 +53,8 @@ class AnnouncementAdmin extends AbstractAdmin
             ])
             ->add('buttonColor', 'choice', [
                 'choices' => [
-                    'Green' => '1',
-                    'Orange' => '2',
+                    'Green' => 'green',
+                    'Orange' => 'orange',
                 ]
             ])
         ;
