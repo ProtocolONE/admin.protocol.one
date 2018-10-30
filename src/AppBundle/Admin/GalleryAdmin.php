@@ -54,7 +54,6 @@ class GalleryAdmin extends AbstractAdmin
                 ]
             )
             ->add('mp4', TextType::class, ['required' => false])
-            ->add('youtubeUrl', TextType::class, ['required' => false])
         ;
     }
 
