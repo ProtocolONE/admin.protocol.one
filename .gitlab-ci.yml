@@ -52,8 +52,8 @@ deploy_production:
       helm upgrade --install $CI_PROJECT_PATH_SLUG .helm
         --set backend.image=$CI_REGISTRY/$CI_PROJECT_NAMESPACE/$CI_PROJECT_NAME
         --set backend.imageTag=$CI_COMMIT_REF_SLUG.$CI_PIPELINE_ID
-        --set image=$CI_REGISTRY/$CI_PROJECT_NAMESPACE/$CI_PROJECT_NAME
-        --set imageTag=$CI_COMMIT_REF_SLUG.$CI_PIPELINE_ID
+        --set frontend.image=$CI_REGISTRY/$CI_PROJECT_NAMESPACE/$CI_PROJECT_NAME
+        --set frontend.imageTag="$CI_COMMIT_REF_SLUG"-nginx.$CI_PIPELINE_ID
         --wait
         --timeout 180
         --debug
@@ -98,8 +98,8 @@ review:
       helm upgrade --install $CI_ENVIRONMENT_SLUG .helm
         --set backend.image=$CI_REGISTRY/$CI_PROJECT_NAMESPACE/$CI_PROJECT_NAME
         --set backend.imageTag=$CI_COMMIT_REF_SLUG.$CI_PIPELINE_ID
-        --set image=$CI_REGISTRY/$CI_PROJECT_NAMESPACE/$CI_PROJECT_NAME
-        --set imageTag=$CI_COMMIT_REF_SLUG.$CI_PIPELINE_ID
+        --set frontend.image=$CI_REGISTRY/$CI_PROJECT_NAMESPACE/$CI_PROJECT_NAME
+        --set frontend.imageTag="$CI_COMMIT_REF_SLUG"-nginx.$CI_PIPELINE_ID
         --set replicas=1
         --set ingress.host=$CI_ENVIRONMENT_SLUG.tst.protocol.one
         --wait
