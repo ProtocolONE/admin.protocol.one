@@ -1,2 +1,2 @@
 <?php
-echo "gitlab-tests branch test backend"
+echo "gitlab-tests branch test backend";
