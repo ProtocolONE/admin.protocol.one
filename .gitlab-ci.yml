@@ -41,7 +41,7 @@ deploy_production:
       -e "CI_PIPELINE_ID=$CI_PIPELINE_ID"
       -e "CI_DEPLOY_USER=$CI_DEPLOY_USER"
       -e "CI_DEPLOY_PASSWORD=$CI_DEPLOY_PASSWORD"
-      p1hub/kubernetes-helm:v2.11.0
+      p1hub/kubernetes-helm:2.11.0
       /bin/sh -c
       'kubectl config set-cluster k8s --insecure-skip-tls-verify=true --server=$K8S_API_URL &&
       kubectl config set-credentials ci --token=$K8S_CI_TOKEN &&
@@ -83,7 +83,7 @@ review:
       -e "CI_PIPELINE_ID=$CI_PIPELINE_ID"
       -e "CI_DEPLOY_USER=$CI_DEPLOY_USER"
       -e "CI_DEPLOY_PASSWORD=$CI_DEPLOY_PASSWORD"
-      p1hub/kubernetes-helm:v2.11.0
+      p1hub/kubernetes-helm:2.11.0
       /bin/sh -c
       'kubectl config set-cluster k8s --insecure-skip-tls-verify=true --server=$K8S_API_URL &&
       kubectl config set-credentials ci --token=$K8S_CI_TOKEN &&
@@ -107,7 +107,7 @@ review:
     - master
 
 stop_review:
-  image: p1hub/kubernetes-helm:v2.11.0
+  image: p1hub/kubernetes-helm:2.11.0
   stage: deploy
   variables:
     GIT_STRATEGY: none
@@ -124,7 +124,7 @@ stop_review:
       -e "CI_PROJECT_NAME=$CI_PROJECT_NAME"
       -e "CI_COMMIT_REF_SLUG=$CI_COMMIT_REF_SLUG"
       -e "CI_PIPELINE_ID=$CI_PIPELINE_ID"
-      p1hub/kubernetes-helm:v2.11.0
+      p1hub/kubernetes-helm:2.11.0
       /bin/sh -c
       'kubectl config set-cluster k8s --insecure-skip-tls-verify=true --server=$K8S_API_URL &&
       kubectl config set-credentials ci --token=$K8S_CI_TOKEN &&
