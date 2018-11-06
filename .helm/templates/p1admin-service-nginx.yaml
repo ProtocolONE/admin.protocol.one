@@ -1,15 +1,15 @@
-{{- $app := .Values.apps.admin -}}
-{{- $deployment := $app.deployments.nginx -}}
-{{- $resourceName := printf "%s-%s" $app.name $deployment.name }}
+{{- $deployment := .Values.frontend -}}
+{{- $svcName := printf "%s-%s" .Release.Name $deployment.name }}
 apiVersion: v1
 kind: Service
 metadata:
-  name: {{ $resourceName }}
+  name: {{ $svcName }}
   labels:
-    chart: {{ .Chart.Name }}
+    app: {{ .Chart.Name }}
+    chart: "{{ .Chart.Name }}-{{ .Chart.Version }}"
     release: {{ .Release.Name }}
-    app: {{ $app.name }}
-    role: {{ $deployment.name }}    
+    heritage: {{ .Release.Service }}
+    role: {{ $deployment.role }}
 spec:
   type: {{ $deployment.service.type }}
   ports:
@@ -17,6 +17,8 @@ spec:
     targetPort: {{ $deployment.port }}
     protocol: {{ $deployment.service.protocol }}
   selector:
-    chart: {{ .Chart.Name }}
-    app: {{ $app.name }}
-    role: {{ $deployment.name }}
+    app: {{ .Chart.Name }}
+    chart: "{{ .Chart.Name }}-{{ .Chart.Version }}"
+    release: {{ .Release.Name }}
+    heritage: {{ .Release.Service }}
+    role: {{ $deployment.role }}
