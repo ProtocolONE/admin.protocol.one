@@ -49,6 +49,8 @@ deploy_production:
       kubectl config use-context ci &&
       helm init --client-only &&
       helm upgrade --install $CI_PROJECT_PATH_SLUG .helm
+        --set backend.image=$CI_REGISTRY/$CI_PROJECT_NAMESPACE/$CI_PROJECT_NAME
+        --set backend.imageTag=$CI_COMMIT_REF_SLUG.$CI_PIPELINE_ID
         --set image=$CI_REGISTRY/$CI_PROJECT_NAMESPACE/$CI_PROJECT_NAME
         --set imageTag=$CI_COMMIT_REF_SLUG.$CI_PIPELINE_ID
         --wait
@@ -65,7 +67,7 @@ review:
   stage: deploy
   environment:
     name: review/$CI_COMMIT_REF_NAME
-    url: http://$CI_ENVIRONMENT_SLUG.k8s.m19.slurm.io
+    url: http://$CI_ENVIRONMENT_SLUG.tst.protocol.one
     on_stop: stop_review
   script:
     - docker run
@@ -93,6 +95,8 @@ review:
       kubectl get namespace $CI_ENVIRONMENT_SLUG ||
       kubectl create namespace $CI_ENVIRONMENT_SLUG &&
       helm upgrade --install $CI_ENVIRONMENT_SLUG .helm
+        --set backend.image=$CI_REGISTRY/$CI_PROJECT_NAMESPACE/$CI_PROJECT_NAME
+        --set backend.imageTag=$CI_COMMIT_REF_SLUG.$CI_PIPELINE_ID
         --set image=$CI_REGISTRY/$CI_PROJECT_NAMESPACE/$CI_PROJECT_NAME
         --set imageTag=$CI_COMMIT_REF_SLUG.$CI_PIPELINE_ID
         --set replicas=1
