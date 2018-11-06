@@ -54,6 +54,7 @@ deploy_production:
         --set backend.imageTag=$CI_COMMIT_REF_SLUG.$CI_PIPELINE_ID
         --set frontend.image=$CI_REGISTRY/$CI_PROJECT_NAMESPACE/$CI_PROJECT_NAME
         --set frontend.imageTag="$CI_COMMIT_REF_SLUG"-nginx.$CI_PIPELINE_ID
+        --set ingress.hostname=$CI_ENVIRONMENT_SLUG.tst.protocol.one
         --wait
         --timeout 180
         --debug
@@ -101,7 +102,7 @@ review:
         --set frontend.image=$CI_REGISTRY/$CI_PROJECT_NAMESPACE/$CI_PROJECT_NAME
         --set frontend.imageTag="$CI_COMMIT_REF_SLUG"-nginx.$CI_PIPELINE_ID
         --set replicas=1
-        --set ingress.host=$CI_ENVIRONMENT_SLUG.tst.protocol.one
+        --set ingress.hostname=$CI_ENVIRONMENT_SLUG.tst.protocol.one
         --wait
         --timeout 180
         --debug
