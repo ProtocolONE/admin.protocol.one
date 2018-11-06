@@ -4,10 +4,10 @@
 
 enableRedis: false
 enableMongo: false
-enableCertIssuer: false
+enableCertIssuer: true
 
 ingress:
-  hostname: auth.tst.protocol.one
+  hostname: admin.tst.protocol.one
   path: /
 
 certIssuer:
