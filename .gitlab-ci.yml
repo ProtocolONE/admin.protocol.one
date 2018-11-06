@@ -1,5 +1,6 @@
 variables:
   K8S_API_URL: https://31.25.227.71:6443
+  CI_DEBUG_TRACE: "true"
 
 stages:
   - build
