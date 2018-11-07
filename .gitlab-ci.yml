@@ -9,8 +9,8 @@ stages:
 build:
   stage: build
   script:
-    - docker build -t $CI_REGISTRY/$CI_PROJECT_NAMESPACE/$CI_PROJECT_NAME:$CI_COMMIT_REF_SLUG.$CI_PIPELINE_ID .
-    - docker build -t $CI_REGISTRY/$CI_PROJECT_NAMESPACE/$CI_PROJECT_NAME:"$CI_COMMIT_REF_SLUG"-nginx.$CI_PIPELINE_ID -f Dockerfile.nginx .
+    - docker build -t $CI_REGISTRY_IMAGE:$CI_COMMIT_REF_SLUG.$CI_PIPELINE_ID .
+    - docker build -t $CI_REGISTRY_IMAGE:"$CI_COMMIT_REF_SLUG"-nginx.$CI_PIPELINE_ID -f Dockerfile.nginx .
 
 push:
   stage: push
@@ -19,8 +19,8 @@ push:
   before_script:
     - docker login -u gitlab-ci-token -p $CI_BUILD_TOKEN $CI_REGISTRY
   script:
-    - docker push $CI_REGISTRY/$CI_PROJECT_NAMESPACE/$CI_PROJECT_NAME:$CI_COMMIT_REF_SLUG.$CI_PIPELINE_ID
-    - docker push $CI_REGISTRY/$CI_PROJECT_NAMESPACE/$CI_PROJECT_NAME:"$CI_COMMIT_REF_SLUG"-nginx.$CI_PIPELINE_ID
+    - docker push $CI_REGISTRY_IMAGE:$CI_COMMIT_REF_SLUG.$CI_PIPELINE_ID
+    - docker push $CI_REGISTRY_IMAGE:"$CI_COMMIT_REF_SLUG"-nginx.$CI_PIPELINE_ID
 
 deploy_production:
   stage: deploy
