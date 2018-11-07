@@ -11,7 +11,6 @@ build:
   script:
     - docker build -t $CI_REGISTRY_IMAGE:$CI_COMMIT_REF_SLUG.$CI_PIPELINE_ID .
     - (if [ -f Dockerfile.nginx ]; then docker build -t $CI_REGISTRY_IMAGE:"$CI_COMMIT_REF_SLUG"-static.$CI_PIPELINE_ID -f Dockerfile.nginx . ; else echo "Project without static content"; fi);
-    #- docker build -t $CI_REGISTRY_IMAGE:"$CI_COMMIT_REF_SLUG"-static.$CI_PIPELINE_ID -f Dockerfile.nginx .
 
 push:
   stage: push
@@ -22,8 +21,7 @@ push:
   script:
     - docker push $CI_REGISTRY_IMAGE:$CI_COMMIT_REF_SLUG.$CI_PIPELINE_ID
     - (if [ -f Dockerfile.nginx ]; then docker push $CI_REGISTRY_IMAGE:"$CI_COMMIT_REF_SLUG"-static.$CI_PIPELINE_ID ; else echo "Project without static content"; fi);
-    #- docker push $CI_REGISTRY_IMAGE:"$CI_COMMIT_REF_SLUG"-static.$CI_PIPELINE_ID
-
+    
 deploy_production:
   stage: deploy
   environment:
@@ -106,7 +104,6 @@ review:
         --set ingress.hostname=$CI_ENVIRONMENT_SLUG.tst.protocol.one
         --wait
         --timeout 180
-        --debug
         --namespace $CI_ENVIRONMENT_SLUG'
   only:
     - branches
