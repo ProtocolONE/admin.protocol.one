@@ -1,5 +1,5 @@
 variables:
-  K8S_API_URL: https://31.25.227.71:6443
+  P1_PROJECT: p1admin
 
 stages:
   - build
@@ -10,7 +10,8 @@ build:
   stage: build
   script:
     - docker build -t $CI_REGISTRY_IMAGE:$CI_COMMIT_REF_SLUG.$CI_PIPELINE_ID .
-    - docker build -t $CI_REGISTRY_IMAGE:"$CI_COMMIT_REF_SLUG"-nginx.$CI_PIPELINE_ID -f Dockerfile.nginx .
+    - (if [ -f Dockerfile.nginx ]; then docker build -t $CI_REGISTRY_IMAGE:"$CI_COMMIT_REF_SLUG"-static.$CI_PIPELINE_ID -f Dockerfile.nginx . ; else echo "Project without static content"; fi);
+    #- docker build -t $CI_REGISTRY_IMAGE:"$CI_COMMIT_REF_SLUG"-static.$CI_PIPELINE_ID -f Dockerfile.nginx .
 
 push:
   stage: push
@@ -20,7 +21,8 @@ push:
     - docker login -u gitlab-ci-token -p $CI_BUILD_TOKEN $CI_REGISTRY
   script:
     - docker push $CI_REGISTRY_IMAGE:$CI_COMMIT_REF_SLUG.$CI_PIPELINE_ID
-    - docker push $CI_REGISTRY_IMAGE:"$CI_COMMIT_REF_SLUG"-nginx.$CI_PIPELINE_ID
+    - (if [ -f Dockerfile.nginx ]; then docker push $CI_REGISTRY_IMAGE:"$CI_COMMIT_REF_SLUG"-static.$CI_PIPELINE_ID ; else echo "Project without static content"; fi);
+    #- docker push $CI_REGISTRY_IMAGE:"$CI_COMMIT_REF_SLUG"-static.$CI_PIPELINE_ID
 
 deploy_production:
   stage: deploy
@@ -53,10 +55,9 @@ deploy_production:
         --set backend.image=$CI_REGISTRY_IMAGE
         --set backend.imageTag=$CI_COMMIT_REF_SLUG.$CI_PIPELINE_ID
         --set frontend.image=$CI_REGISTRY_IMAGE
-        --set frontend.imageTag="$CI_COMMIT_REF_SLUG"-nginx.$CI_PIPELINE_ID
+        --set frontend.imageTag="$CI_COMMIT_REF_SLUG"-static.$CI_PIPELINE_ID
         --wait
         --timeout 180
-        --debug
         --namespace $CI_PROJECT_PATH_SLUG-$CI_ENVIRONMENT_NAME ||
       (helm history --max 2 $CI_PROJECT_PATH_SLUG | head -n 2 | tail -n 1 | awk "{print \$1}" | xargs helm rollback $CI_PROJECT_PATH_SLUG && exit 1)'
   only:
@@ -67,7 +68,7 @@ deploy_production:
 review:
   stage: deploy
   environment:
-    name: admin-$CI_COMMIT_REF_NAME
+    name: $P1_PROJECT-$CI_COMMIT_REF_NAME
     url: http://$CI_ENVIRONMENT_SLUG.tst.protocol.one
     on_stop: stop_review
   script:
@@ -100,7 +101,7 @@ review:
         --set backend.image=$CI_REGISTRY_IMAGE
         --set backend.imageTag=$CI_COMMIT_REF_SLUG.$CI_PIPELINE_ID
         --set frontend.image=$CI_REGISTRY_IMAGE
-        --set frontend.imageTag="$CI_COMMIT_REF_SLUG"-nginx.$CI_PIPELINE_ID
+        --set frontend.imageTag="$CI_COMMIT_REF_SLUG"-static.$CI_PIPELINE_ID
         --set replicas=1
         --set ingress.hostname=$CI_ENVIRONMENT_SLUG.tst.protocol.one
         --wait
@@ -124,7 +125,7 @@ stop_review:
       -e "K8S_CI_TOKEN=$K8S_CI_TOKEN"
       -e "CI_PROJECT_PATH_SLUG=$CI_PROJECT_PATH_SLUG"
       -e "CI_ENVIRONMENT_NAME=$CI_ENVIRONMENT_NAME"
-      -e "CI_ENVIRONMENT_SLUG=CI_ENVIRONMENT_SLUG"
+      -e "CI_ENVIRONMENT_SLUG=$CI_ENVIRONMENT_SLUG"
       -e "CI_REGISTRY=$CI_REGISTRY"
       -e "CI_PROJECT_NAMESPACE=$CI_PROJECT_NAMESPACE"
       -e "CI_PROJECT_NAME=$CI_PROJECT_NAME"
@@ -140,7 +141,7 @@ stop_review:
       helm delete --purge $CI_ENVIRONMENT_SLUG &&
       kubectl delete namespace $CI_ENVIRONMENT_SLUG'
   environment:
-    name: admin-$CI_COMMIT_REF_NAME
+    name: $P1_PROJECT-$CI_COMMIT_REF_NAME
     action: stop
   when: manual
   only:
