@@ -3,7 +3,7 @@
 # Declare variables to be passed into your templates.
 
 enableRedis: false
-enableMongo: false
+enableMongo: true
 enableCertIssuer: true
 
 # to release to production environment set prodRelease = true
