@@ -6,6 +6,9 @@ enableRedis: false
 enableMongo: false
 enableCertIssuer: true
 
+# to release to production environment set prodRelease = true
+prodRelease: false
+
 ingress:
   hostname: admin.tst.protocol.one
   path: /
@@ -30,7 +33,7 @@ frontend:
 backend:
   name: fpm
   role: backend
-  image: "registry.gitlab.com/atlix/admin.protocol.one"
+  image: "registry.gitlab.com/protocolone/admin.protocol.one"
   imageTag: latest
   replicas: 1
   port: 9000
