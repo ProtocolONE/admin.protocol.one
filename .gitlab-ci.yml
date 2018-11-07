@@ -138,7 +138,7 @@ stop_review:
       helm delete --purge $CI_ENVIRONMENT_SLUG &&
       kubectl delete namespace $CI_ENVIRONMENT_SLUG'
   environment:
-    name: review/$CI_COMMIT_REF_NAME
+    name: admin-$CI_COMMIT_REF_NAME
     action: stop
   when: manual
   only:
