@@ -75,11 +75,6 @@ spec:
               secretKeyRef:
                 name: {{ .Release.Name }}-mongo
                 key: MONGO_PASSWORD
-          - name: REDIS_HOST
-            valueFrom:
-              secretKeyRef:
-                name: {{ .Release.Name}}-redis
-                key: REDIS_HOST
           - name: S3_BUCKET_NAME
             valueFrom:
               secretKeyRef:
