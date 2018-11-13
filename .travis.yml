@@ -24,8 +24,8 @@ jobs:
     - docker push $REPO
     - docker build -t $REPONGX:$TAG -t $REPONGX:0.0.$TRAVIS_BUILD_NUMBER -f Dockerfile.nginx .
     - docker push $REPONGX
-after_success:
-  - curl -X POST $JURL/job/deploy-p1admin/build --user $JENKINS_LOGIN:$TOKEN
+#after_success:
+#  - curl -X POST $JURL/job/deploy-p1admin/build --user $JENKINS_LOGIN:$TOKEN
 notifications:
   email: false
   slack:
